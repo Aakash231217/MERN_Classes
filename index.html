@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Sales Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js
+"></script>
+</head>
+ <style>
+    canvas{
+        max-width:800px;
+        max-height:400px;
+    }
+ </style>
+<body>
+    <h1> Monthly Sales Data</h1>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        const monthlyData = [0,1,2,3,4];
+        const months = ['December','February','March','April','May'];
+        //create chart
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx,{
+            type:'bar',
+            data:{
+                labels: months,
+                datasets:[{
+                    label:'Monthly Sales',
+                    data:monthlyData,
+                    backgroundColor:'#4caf50',
+                    borderColor:'#4caf50',
+                    borderWidth:1,
+                }]
+
+            },
+            options:{
+                scales:{
+                    x:{
+                        ticks:{
+                            font:{
+                                size:22,
+                                weight:'bold',
+                            },
+                            color:'#4caf50',
+                        }
+                    },
+                    y:{
+                        beginAtZero:true,
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Basic React App</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        function App(){
+            const [count,setCount] = React.useState(0);
+            return React.createElement(
+                'div',
+                null,
+                React.createElement('h1',null,'Hello React!'),
+
+                React.createElement('p',null, `You clicked ${count} times`),
+                React.createElement(
+                    'button',
+                    {onClick:()=>setCount(count+1)},
+                    'Click me'
+                )
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App))
+    </script>
+</body>
+</html>
+name=AAakash
+name1 =Ravi
+name2 = Avi
+name3 = Basit
+
+age=35
+const {name1, name2, name3} = person; // object destructuring
+person.name1
+
+[...person]
+
+
+const [firstColor, secondColor] = colors;
+colors[0]
+colors[1]
+
+[...colors]
+
+
+Loading........
+
+<p>Name: {user?.name}</p>
+
+//nested optional chaining
+
+<p>Email: {user?.contact?.email}</p>
