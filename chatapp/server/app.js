@@ -33,6 +33,7 @@ app.get("/login",(req,res)=>{
     )
 })
 
+//sockets got all the information
 io.use((socket,next)=>{
     cookieParser()(socket.request,socket.request.res,(err)=>{
         if(err)return next(err);
@@ -45,8 +46,26 @@ io.use((socket,next)=>{
 io.on("connection",(socket)=>{
     console.log("User connected",socket.id);
     socket.on("message",({room, message})=>{
-        console.log({})
+        console.log({room, message});
+        socket.to(room).emit("receive-message",message);
+    });
+
+    //user has joined this room
+    socket.on("join-room",(room)=>{
+        socket.join(room);
+        console.log(`User joined room ${room}`);
     })
+    //disconnection
+    socket.on("disconnect",()=>{
+        console.log("User disconnect",socket.id);
+    });
+
 })
+
+server.listen(port, ()=>{
+    console.log(`Server is running on port ${port}`);
+})
+
+
 
 
